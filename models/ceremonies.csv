@@ -1,0 +1,227 @@
+year_ceremony,Film,imdb_id,won,pga_win,dga_win,sag_win
+1996,Braveheart,tt0112573,1,0,0,0
+1996,Apollo 13,tt0112384,0,1,1,1
+1996,Babe,tt0112431,0,0,0,0
+1996,The Postman (Il Postino),tt0110877,0,0,0,0
+1996,Sense and Sensibility,tt0114388,0,0,0,0
+1997,The English Patient,tt0116209,1,1,1,0
+1997,Fargo,tt0116282,0,0,0,0
+1997,Jerry Maguire,tt0116695,0,0,0,0
+1997,Secrets & Lies,tt0117589,0,0,0,0
+1997,Shine,tt0117631,0,0,0,0
+1998,Titanic,tt0120338,1,1,1,0
+1998,As Good as It Gets,tt0119822,0,0,0,0
+1998,The Full Monty,tt0119164,0,0,0,1
+1998,Good Will Hunting,tt0119217,0,0,0,0
+1998,L.A. Confidential,tt0119488,0,0,0,0
+1999,Shakespeare in Love,tt0138097,1,0,0,1
+1999,Elizabeth,tt0127536,0,0,0,0
+1999,Life Is Beautiful,tt0118799,0,0,0,0
+1999,Saving Private Ryan,tt0120815,0,1,1,0
+1999,The Thin Red Line,tt0120863,0,0,0,0
+2000,American Beauty,tt0169547,1,1,1,1
+2000,The Cider House Rules,tt0124315,0,0,0,0
+2000,The Green Mile,tt0120689,0,0,0,0
+2000,The Insider,tt0140352,0,0,0,0
+2000,The Sixth Sense,tt0167404,0,0,0,0
+2001,Gladiator,tt0172495,1,1,0,0
+2001,Chocolat,tt0241303,0,0,0,0
+2001,"Crouching Tiger, Hidden Dragon",tt0190332,0,0,1,0
+2001,Erin Brockovich,tt0195685,0,0,0,0
+2001,Traffic,tt0181865,0,0,0,1
+2002,A Beautiful Mind,tt0268978,1,0,1,0
+2002,Gosford Park,tt0280707,0,0,0,1
+2002,In the Bedroom,tt0247425,0,0,0,0
+2002,The Lord of the Rings: The Fellowship of the Ring,tt0120737,0,0,0,0
+2002,Moulin Rouge,tt0203009,0,1,0,0
+2003,Chicago,tt0299658,1,1,1,1
+2003,Gangs of New York,tt0217505,0,0,0,0
+2003,The Hours,tt0274558,0,0,0,0
+2003,The Lord of the Rings: The Two Towers,tt0167261,0,0,0,0
+2003,The Pianist,tt0253474,0,0,0,0
+2004,The Lord of the Rings: The Return of the King,tt0167260,1,1,1,1
+2004,Lost in Translation,tt0335266,0,0,0,0
+2004,Master and Commander: The Far Side of the World,tt0311113,0,0,0,0
+2004,Mystic River,tt0327056,0,0,0,0
+2004,Seabiscuit,tt0329575,0,0,0,0
+2005,Million Dollar Baby,tt0405159,1,0,1,0
+2005,The Aviator,tt0338751,0,1,0,0
+2005,Finding Neverland,tt0308644,0,0,0,0
+2005,Ray,tt0350258,0,0,0,0
+2005,Sideways,tt0375063,0,0,0,1
+2006,Crash,tt0375679,1,0,0,1
+2006,Brokeback Mountain,tt0388795,0,1,1,0
+2006,Capote,tt0379725,0,0,0,0
+2006,"Good Night, and Good Luck.",tt0433383,0,0,0,0
+2006,Munich,tt0408306,0,0,0,0
+2007,The Departed,tt0407887,1,0,1,0
+2007,Babel,tt0449467,0,0,0,0
+2007,Letters from Iwo Jima,tt0498380,0,0,0,0
+2007,Little Miss Sunshine,tt0449059,0,1,0,1
+2007,The Queen,tt0436697,0,0,0,0
+2008,No Country for Old Men,tt0477348,1,1,1,1
+2008,Atonement,tt0783233,0,0,0,0
+2008,Juno,tt0467406,0,0,0,0
+2008,Michael Clayton,tt0465538,0,0,0,0
+2008,There Will Be Blood,tt0469494,0,0,0,0
+2009,Slumdog Millionaire,tt1010048,1,1,1,1
+2009,The Curious Case of Benjamin Button,tt0421715,0,0,0,0
+2009,Frost/Nixon,tt0870111,0,0,0,0
+2009,Milk,tt1013753,0,0,0,0
+2009,The Reader,tt0976051,0,0,0,0
+2010,The Hurt Locker,tt0887912,1,1,1,0
+2010,Avatar,tt0499549,0,0,0,0
+2010,The Blind Side,tt0878804,0,0,0,0
+2010,District 9,tt1136608,0,0,0,0
+2010,An Education,tt1174732,0,0,0,0
+2010,Inglourious Basterds,tt0361748,0,0,0,1
+2010,Precious: Based on the Novel 'Push' by Sapphire,tt0929632,0,0,0,0
+2010,A Serious Man,tt1019452,0,0,0,0
+2010,Up,tt1049413,0,0,0,0
+2010,Up in the Air,tt1193138,0,0,0,0
+2011,The King's Speech,tt1504320,1,1,1,1
+2011,Black Swan,tt0947798,0,0,0,0
+2011,The Fighter,tt0964517,0,0,0,0
+2011,Inception,tt1375666,0,0,0,0
+2011,The Kids Are All Right,tt0842926,0,0,0,0
+2011,127 Hours,tt1542344,0,0,0,0
+2011,The Social Network,tt1285016,0,0,0,0
+2011,Toy Story 3,tt0435761,0,0,0,0
+2011,True Grit,tt1403865,0,0,0,0
+2011,Winter's Bone,tt1399683,0,0,0,0
+2012,The Artist,tt1655442,1,1,1,0
+2012,The Descendants,tt1033575,0,0,0,0
+2012,Extremely Loud & Incredibly Close,tt0477302,0,0,0,0
+2012,The Help,tt1454029,0,0,0,1
+2012,Hugo,tt0970179,0,0,0,0
+2012,Midnight in Paris,tt1605783,0,0,0,0
+2012,Moneyball,tt1210166,0,0,0,0
+2012,The Tree of Life,tt0478304,0,0,0,0
+2012,War Horse,tt1568911,0,0,0,0
+2013,Argo,tt1024648,1,1,1,1
+2013,Amour,tt1602620,0,0,0,0
+2013,Beasts of the Southern Wild,tt2125435,0,0,0,0
+2013,Django Unchained,tt1853728,0,0,0,0
+2013,Les Misérables,tt1707386,0,0,0,0
+2013,Life of Pi,tt0454876,0,0,0,0
+2013,Lincoln,tt0443272,0,0,0,0
+2013,Silver Linings Playbook,tt1045658,0,0,0,0
+2013,Zero Dark Thirty,tt1790885,0,0,0,0
+2014,12 Years a Slave,tt2024544,1,1,0,0
+2014,American Hustle,tt1800241,0,0,0,1
+2014,Captain Phillips,tt1535109,0,0,0,0
+2014,Dallas Buyers Club,tt0790636,0,0,0,0
+2014,Gravity,tt1454468,0,0,1,0
+2014,Her,tt1798709,0,0,0,0
+2014,Nebraska,tt1821549,0,0,0,0
+2014,Philomena,tt2431286,0,0,0,0
+2014,The Wolf of Wall Street,tt0993846,0,0,0,0
+2015,Birdman or (The Unexpected Virtue of Ignorance),tt2562232,1,1,1,1
+2015,American Sniper,tt2179136,0,0,0,0
+2015,Boyhood,tt1065073,0,0,0,0
+2015,The Grand Budapest Hotel,tt2278388,0,0,0,0
+2015,The Imitation Game,tt2084970,0,0,0,0
+2015,Selma,tt1020072,0,0,0,0
+2015,The Theory of Everything,tt2980516,0,0,0,0
+2015,Whiplash,tt2582802,0,0,0,0
+2016,Spotlight,tt1895587,1,0,0,1
+2016,The Big Short,tt1596363,0,1,0,0
+2016,Bridge of Spies,tt3682448,0,0,0,0
+2016,Brooklyn,tt2381111,0,0,0,0
+2016,Mad Max: Fury Road,tt1392190,0,0,0,0
+2016,The Martian,tt3659388,0,0,0,0
+2016,The Revenant,tt1663202,0,0,1,0
+2016,Room,tt3170832,0,0,0,0
+2017,Moonlight,tt4975722,1,0,0,0
+2017,Arrival,tt2543164,0,0,0,0
+2017,Fences,tt2671706,0,0,0,0
+2017,Hacksaw Ridge,tt2119532,0,0,0,0
+2017,Hell or High Water,tt2582782,0,0,0,0
+2017,Hidden Figures,tt4846340,0,0,0,1
+2017,La La Land,tt3783958,0,1,1,0
+2017,Lion,tt3741834,0,0,0,0
+2017,Manchester by the Sea,tt4034228,0,0,0,0
+2018,The Shape of Water,tt5580390,1,1,1,0
+2018,Call Me by Your Name,tt5726616,0,0,0,0
+2018,Darkest Hour,tt4555426,0,0,0,0
+2018,Dunkirk,tt5013056,0,0,0,0
+2018,Get Out,tt5052448,0,0,0,0
+2018,Lady Bird,tt4925292,0,0,0,0
+2018,Phantom Thread,tt5776858,0,0,0,0
+2018,The Post,tt6294822,0,0,0,0
+2018,"Three Billboards outside Ebbing, Missouri",tt5027774,0,0,0,1
+2019,Green Book,tt6966692,1,1,0,0
+2019,Black Panther,tt1825683,0,0,0,1
+2019,BlacKkKlansman,tt7349662,0,0,0,0
+2019,Bohemian Rhapsody,tt1727824,0,0,0,0
+2019,The Favourite,tt5083738,0,0,0,0
+2019,Roma,tt6155172,0,0,1,0
+2019,A Star Is Born,tt1517451,0,0,0,0
+2019,Vice,tt6266538,0,0,0,0
+2020,Parasite,tt6751668,1,0,0,1
+2020,Ford v Ferrari,tt1950186,0,0,0,0
+2020,The Irishman,tt1302006,0,0,0,0
+2020,Jojo Rabbit,tt2584384,0,0,0,0
+2020,Joker,tt7286456,0,0,0,0
+2020,Little Women,tt3281548,0,0,0,0
+2020,Marriage Story,tt7653254,0,0,0,0
+2020,1917,tt8579674,0,1,1,0
+2020,Once upon a Time...in Hollywood,tt7131622,0,0,0,0
+2021,Nomadland,tt9770150,1,1,1,0
+2021,The Father,tt10272386,0,0,0,0
+2021,Judas and the Black Messiah,tt9784798,0,0,0,0
+2021,Mank,tt10618286,0,0,0,0
+2021,Minari,tt10633456,0,0,0,0
+2021,Promising Young Woman,tt9620292,0,0,0,0
+2021,Sound of Metal,tt5363618,0,0,0,0
+2021,The Trial of the Chicago 7,tt1070874,0,0,0,1
+2022,CODA,tt10366460,1,1,0,1
+2022,Belfast,tt12789558,0,0,0,0
+2022,Don't Look Up,tt11286314,0,0,0,0
+2022,Drive My Car,tt14039582,0,0,0,0
+2022,Dune,tt1160419,0,0,0,0
+2022,King Richard,tt9620288,0,0,0,0
+2022,Licorice Pizza,tt11271038,0,0,0,0
+2022,Nightmare Alley,tt7740496,0,0,0,0
+2022,The Power of the Dog,tt10293406,0,0,1,0
+2022,West Side Story,tt3581652,0,0,0,0
+2023,Everything Everywhere All at Once,tt6710474,1,1,1,1
+2023,All Quiet on the Western Front,tt1016150,0,0,0,0
+2023,Avatar: The Way of Water,tt1630029,0,0,0,0
+2023,The Banshees of Inisherin,tt11813216,0,0,0,0
+2023,Elvis,tt3704428,0,0,0,0
+2023,The Fabelmans,tt14208870,0,0,0,0
+2023,Tár,tt14444726,0,0,0,0
+2023,Top Gun: Maverick,tt1745960,0,0,0,0
+2023,Triangle of Sadness,tt7322224,0,0,0,0
+2023,Women Talking,tt13669038,0,0,0,0
+2024,Oppenheimer,tt15398776,1,1,1,1
+2024,American Fiction,tt23561236,0,0,0,0
+2024,Anatomy of a Fall,tt17009710,0,0,0,0
+2024,Barbie,tt1517268,0,0,0,0
+2024,The Holdovers,tt14849194,0,0,0,0
+2024,Killers of the Flower Moon,tt5537002,0,0,0,0
+2024,Maestro,tt5535276,0,0,0,0
+2024,Past Lives,tt13238346,0,0,0,0
+2024,Poor Things,tt14230458,0,0,0,0
+2024,The Zone of Interest,tt7160372,0,0,0,0
+2025,Anora,tt28607951,1,1,1,0
+2025,The Brutalist,tt8999762,0,0,0,0
+2025,A Complete Unknown,tt11563598,0,0,0,0
+2025,Conclave,tt20215234,0,0,0,1
+2025,Dune: Part Two,tt15239678,0,0,0,0
+2025,Emilia Pérez,tt20221436,0,0,0,0
+2025,I'm Still Here,tt14961016,0,0,0,0
+2025,Nickel Boys,tt23055660,0,0,0,0
+2025,The Substance,tt17526714,0,0,0,0
+2025,Wicked,tt1262426,0,0,0,0
+2026,One Battle after Another,tt30144839,1,1,1,0
+2026,Bugonia,tt12300742,0,0,0,0
+2026,F1,tt16311594,0,0,0,0
+2026,Frankenstein,tt1312221,0,0,0,0
+2026,Hamnet,tt14905854,0,0,0,0
+2026,Marty Supreme,tt32916440,0,0,0,0
+2026,The Secret Agent,tt27847051,0,0,0,0
+2026,Sentimental Value,tt27714581,0,0,0,0
+2026,Sinners,tt31193180,0,0,0,1
+2026,Train Dreams,tt29768334,0,0,0,0

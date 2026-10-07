@@ -1,7 +1,6 @@
 """Helpers for the API: load model and data once, compute the chances of winning."""
 
-from oscar.features import OUT_FILE
-from oscar.train import load
+from oscar.train import CEREMONIES_FILE, MODEL_DIR, load
 from functools import lru_cache
 import numpy as np
 import pandas as pd
@@ -29,11 +28,12 @@ def get_model():
 
 @lru_cache
 def get_nominations() -> pd.DataFrame:
+    """Nominees and guild awards per ceremony (models/ceremonies.csv, written by train.py)."""
     try:
-        return pd.read_csv(OUT_FILE)
+        return pd.read_csv(MODEL_DIR / CEREMONIES_FILE)
     except FileNotFoundError:
-        raise HTTPException(503, "No data found. Run the pipeline first: "
-                                 "uv run python run_pipeline.py")
+        raise HTTPException(503, "No ceremonies.csv found. Train the model first: "
+                                 "uv run python -m oscar.train")
 
 
 def probabilities(model, meta: dict, X: pd.DataFrame) -> np.ndarray:

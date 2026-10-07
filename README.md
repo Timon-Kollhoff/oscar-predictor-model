@@ -101,7 +101,7 @@ oscar-predictor/
 ├── notebooks/
 │   ├── 01_eda.ipynb         # data exploration
 │   └── 02_modell.ipynb      # model selection and evaluation
-├── models/                  # trained model and its metadata
+├── models/                  # trained model, metadata and the nominee table for the API
 ├── reports/figures/         # figures used in this README
 └── data/                    # raw, interim and processed data (not in git)
 ```
@@ -124,6 +124,8 @@ To serve the model as a REST API:
 uv run python -m oscar.train                  # trains the model and saves it to models/
 uv run uvicorn oscar.api.main:app --reload    # then open http://127.0.0.1:8000/docs
 ```
+
+The trained model is part of the repository, so the API also runs without the data pipeline, for example with Docker: `docker build -t oscar-api .` and `docker run -p 8000:8000 oscar-api`.
 
 Endpoints, example requests and how the API works are described in the [API README](src/oscar/api/README.md).
 

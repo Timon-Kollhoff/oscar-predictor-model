@@ -7,6 +7,7 @@ trained on all years and saved.
 Run:     uv run python -m oscar.train
 Output:  models/best_picture.joblib  (the trained model)
          models/metadata.json        (features, training years, versions, test result)
+         models/ceremonies.csv       (nominees and guild awards per ceremony, read by the API)
 """
 
 from __future__ import annotations
@@ -34,6 +35,8 @@ TEST_FIRST = 2015             # first test year, only for the record in metadata
 MODEL_DIR = ROOT / "models"
 MODEL_FILE = "best_picture.joblib"
 METADATA_FILE = "metadata.json"
+CEREMONIES_FILE = "ceremonies.csv"
+API_COLUMNS = [YEAR, "Film", "imdb_id", TARGET]  # plus FEATURES
 
 
 def load_training_data(path: Path = OUT_FILE) -> pd.DataFrame:
@@ -72,6 +75,19 @@ def save(model, metadata: dict, out_dir: Path = MODEL_DIR) -> None:
                                          encoding="utf-8")
 
 
+def save_ceremonies(path: Path = OUT_FILE, out_dir: Path = MODEL_DIR) -> pd.DataFrame:
+    """Saves the small table that /prediction/{year} reads: every nominee from film year
+    1995 on (upcoming ceremonies included) with only the model's features. It holds facts
+    from Kaggle and Wikipedia only, no TMDb or OMDb data, so it can live in the repository
+    next to the model, and the API runs without the data pipeline."""
+    df = pd.read_csv(path)
+    df = df.loc[df["year_film"] >= FIRST_FILM_YEAR, API_COLUMNS + FEATURES]
+    df[FEATURES] = df[FEATURES].astype("Int64")  # 1/0 instead of 1.0/0.0 in the CSV
+    out_dir.mkdir(parents=True, exist_ok=True)
+    df.to_csv(out_dir / CEREMONIES_FILE, index=False)
+    return df
+
+
 def load(model_dir: Path = MODEL_DIR):
     """For the API: load the saved model and its metadata."""
     model = joblib.load(model_dir / MODEL_FILE)
@@ -107,6 +123,7 @@ def main() -> None:
         "scikit_learn": sklearn.__version__,
     }
     save(model, metadata, args.out)
+    ceremonies = save_ceremonies(args.data, args.out)
 
     ev = evaluation
     print(f"Trained: {FEATURE_SET} on {metadata['n_ceremonies']} ceremonies "
@@ -114,7 +131,7 @@ def main() -> None:
           f"{metadata['n_nominations']} nominations)")
     print(f"Test {ev['method']}: model {ev['model_hits']}/{ev['ceremonies']}, "
           f"PGA rule {ev['pga_rule_hits']}/{ev['ceremonies']}")
-    print(f"Saved to {args.out}")
+    print(f"Saved model, metadata and {len(ceremonies)} nominees for the API to {args.out}")
 
 
 if __name__ == "__main__":

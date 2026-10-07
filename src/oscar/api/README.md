@@ -14,26 +14,29 @@ uv run uvicorn oscar.api.main:app --reload    # start the API
 
 Then open **http://127.0.0.1:8000/docs**. FastAPI generates an interactive page there where every endpoint can be tried in the browser.
 
-What each endpoint needs:
+Everything the API needs is in `models/`, and that folder is part of the repository: the trained model, its metadata and `ceremonies.csv` with the nominees and guild awards of every ceremony since 1996. The API therefore runs without the data pipeline and without any API keys. Run `train.py` again only after rebuilding the data.
 
-| Endpoint | Needs |
-| --- | --- |
-| `GET /model` | the trained model in `models/` |
-| `POST /predict` | the trained model in `models/` |
-| `GET /prediction/{year}` | the trained model and `data/processed/nominations.csv` (built by `uv run python run_pipeline.py`) |
+## Docker
+
+```bash
+docker build -t oscar-api .
+docker run -p 8000:8000 oscar-api
+```
+
+Then open http://127.0.0.1:8000/docs as above. The image contains only the code and `models/` (see `.dockerignore`), no data and no API keys.
 
 ## How it works
 
 ```mermaid
 flowchart LR
-    T[train.py] --> M[models/best_picture.joblib<br>models/metadata.json]
+    N[data/processed/nominations.csv] --> T[train.py]
+    T --> M[models/<br>best_picture.joblib<br>metadata.json<br>ceremonies.csv]
     M --> C[controller.py<br>load once, compute chances]
-    D[data/processed/nominations.csv] --> C
     C --> A[main.py<br>endpoints]
     S[schemas.py<br>request and response formats] --> A
 ```
 
-**The model.** A logistic regression on three yes/no features: did the film win the PGA, the DGA and the SAG ensemble award? This feature set was chosen in `notebooks/02_modell.ipynb` on the ceremonies 2005–2014. On the untouched test ceremonies 2015–2026 it picked the right winner 8 times out of 12 (the rule "the PGA winner wins" got 9 out of 12). `train.py` then retrains it on all ceremonies from 1996 to 2026 and saves it.
+**The model.** A logistic regression on three yes/no features: did the film win the PGA, the DGA and the SAG ensemble award? This feature set was chosen in `notebooks/02_modell.ipynb` on the ceremonies 2005–2014. On the untouched test ceremonies 2015–2026 it picked the right winner 8 times out of 12 (the rule "the PGA winner wins" got 9 out of 12). `train.py` then retrains it on all ceremonies from 1996 to 2026 and saves it, together with `ceremonies.csv`, the table that `/prediction/{year}` reads. That table holds only facts from the Kaggle dataset and Wikipedia (nominees, winners, guild awards), no TMDb or OMDb data, so it can be shared in the repository.
 
 **From probabilities to a pick.** The model rates every film on its own and returns a probability of winning. Because exactly one film wins per ceremony, the API divides these probabilities by their sum, so the chances of all films in a request add up to 1. The film with the highest chance is the pick.
 
@@ -70,7 +73,7 @@ curl http://127.0.0.1:8000/model
 
 ### `GET /prediction/{year}`
 
-Chances for the nominees of one ceremony from the dataset. `year` is the year of the ceremony, so `2017` means the ceremony in early 2017 for the films of 2016.
+Chances for the nominees of one ceremony from `models/ceremonies.csv`. `year` is the year of the ceremony, so `2017` means the ceremony in early 2017 for the films of 2016.
 
 ```bash
 curl http://127.0.0.1:8000/prediction/2017
@@ -97,7 +100,7 @@ curl http://127.0.0.1:8000/prediction/2017
 
 The response is shortened to three of the nine nominees. `predictions` is sorted by probability.
 
-`in_training: true` means the model saw this ceremony during training, so the pick is not an honest test. For honest numbers, see the walk-forward evaluation in the notebook. For a future ceremony whose nominations are already in the data, `winner`, `correct` and `won` are `null`.
+`in_training: true` means the model saw this ceremony during training, so the pick is not an honest test. For honest numbers, see the walk-forward evaluation in the notebook. Once the nominations of an upcoming ceremony are in the data and `train.py` has run again, the endpoint covers that ceremony too; `winner` and `correct` are `null` until the winner is known.
 
 ### `POST /predict`
 
@@ -130,7 +133,7 @@ curl -X POST http://127.0.0.1:8000/predict \
 | --- | --- |
 | `404` | `/prediction/{year}` for a ceremony before 1996 or one that is not in the data |
 | `422` | invalid request, e.g. fewer than 2 or more than 10 films, or a missing `title` |
-| `503` | no trained model in `models/`, or no `nominations.csv` for `/prediction/{year}`; the message names the command to run |
+| `503` | no trained model or no `ceremonies.csv` in `models/`; the message names the command to run |
 
 ## Limitations
 

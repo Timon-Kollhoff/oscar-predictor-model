@@ -1,0 +1,11 @@
+*
+!pyproject.toml
+!uv.lock
+!README.md
+!src/
+!models/
+
+# never needed inside the image
+**/__pycache__
+**/*.pyc
+**/.DS_Store
