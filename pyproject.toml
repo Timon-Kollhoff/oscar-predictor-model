@@ -1,7 +1,7 @@
 [project]
 name = "oscar-predictor"
 version = "0.1.0"
-description = "Oscar prediction Project"
+description = "Predicting the Oscar for Best Picture from guild awards, with an honest evaluation and a FastAPI service"
 readme = "README.md"
 authors = [
     { name = "tkollhoff", email = "timon.kollhoff@web.de" }

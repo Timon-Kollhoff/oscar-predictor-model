@@ -3,7 +3,6 @@ import json
 import os
 import time
 from pathlib import Path
-from wsgiref import headers
  
 import pandas as pd
 import requests
@@ -11,7 +10,7 @@ from dotenv import load_dotenv
 ROOT = Path(__file__).resolve().parents[3]  # project folder
 RAW_DIR = ROOT / "data" / "raw" / "omdb"
 OUT_FILE = ROOT / "data" / "interim" / "omdb.csv"
-API = "http://www.omdbapi.com/"
+API = "https://www.omdbapi.com/"
 
 class OMDbMovies:
     def __init__(self, api_key:str | None = None, raw_dir: Path = RAW_DIR, out_file: Path = OUT_FILE):
@@ -22,22 +21,33 @@ class OMDbMovies:
         self.raw_dir = Path(raw_dir)
         self.out_file = Path(out_file)
         self.session = requests.Session()
-        self.session.headers.update({
-            "accept": "application/json",
-            "Authorization": f"Bearer {self.api_key}",
-        })
+        self.session.headers.update({"accept": "application/json"})
     
     def _get(self, **params) -> dict:
-        """One request to OMDb. OMDb reports errors with status 200 and "Response": "False"."""
-        response = self.session.get(API, params={"apikey": self.api_key, **params}, timeout=30)
-        response.raise_for_status()
-        data = response.json()
-        if data.get("Response") == "False":
-            error = data.get("Error", "").lower()
-            if "limit" in error:
-                raise RuntimeError("OMDb daily limit reached. Run again tomorrow, the cache is kept.")
-            if "invalid api key" in error:
-                raise RuntimeError("Invalid OMDb key. Did you activate it with the link in the confirmation email?")
+        """One request to OMDb.
+
+        OMDb only accepts the key as a URL parameter, so the key is cut out of every
+        error message; otherwise it would end up in tracebacks and logs. OMDb puts its
+        own errors into the JSON ("Response": "False"), sometimes with status 200 and
+        sometimes with 401, so the JSON is read before the status is checked."""
+        try:
+            response = self.session.get(API, params={"apikey": self.api_key, **params}, timeout=30)
+            try:
+                data = response.json()
+            except ValueError:  # no JSON, e.g. an error page from the server
+                response.raise_for_status()
+                raise
+            if data.get("Response") == "False":
+                error = data.get("Error", "").lower()
+                if "limit" in error:
+                    raise RuntimeError("OMDb daily limit reached. Run again tomorrow, the cache is kept.")
+                if "invalid api key" in error:
+                    raise RuntimeError("Invalid OMDb key. Did you activate it with the link in the confirmation email?")
+            response.raise_for_status()
+        except requests.RequestException as err:
+            if self.api_key not in str(err):
+                raise
+            raise requests.RequestException(str(err).replace(self.api_key, "***")) from None
         time.sleep(0.1)
         return data
     

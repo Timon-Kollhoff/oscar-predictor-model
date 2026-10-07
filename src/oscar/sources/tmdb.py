@@ -3,7 +3,6 @@ import json
 import os
 import time
 from pathlib import Path
-from wsgiref import headers
  
 import pandas as pd
 import requests
@@ -29,7 +28,8 @@ class TMDbMovies:
         })
 
     def _get(self, path: str, **params) -> dict:
-        response = self.session.get(API + path, params={"api_key": self.api_key, **params}, timeout=30)
+        # the token is sent in the Authorization header (see __init__), never in the URL
+        response = self.session.get(API + path, params=params, timeout=30)
         response.raise_for_status()
         time.sleep(0.05)  
         return response.json()
