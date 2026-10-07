@@ -1,0 +1,33 @@
+[project]
+name = "oscar-predictor"
+version = "0.1.0"
+description = "Oscar prediction Project"
+readme = "README.md"
+authors = [
+    { name = "tkollhoff", email = "timon.kollhoff@web.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "fastapi>=0.142.2",
+    "ipykernel>=7.4.0",
+    "kagglehub>=1.0.2",
+    "lxml>=6.1.3",
+    "matplotlib>=3.11.2",
+    "pandas>=3.0.6",
+    "python-dotenv>=1.2.4",
+    "requests>=2.34.2",
+    "scikit-learn>=1.9.1",
+    "uvicorn>=0.54.0",
+    "xgboost>=3.4.1",
+]
+
+[project.scripts]
+oscar-predictor = "oscar_predictor:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "oscar"

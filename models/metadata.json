@@ -1,0 +1,32 @@
+{
+  "target": "Best Picture (won)",
+  "feature_set": "PGA+DGA+SAG",
+  "features": [
+    "pga_win",
+    "dga_win",
+    "sag_win"
+  ],
+  "half_life": null,
+  "coefficients_standardized": {
+    "pga_win": 0.786,
+    "dga_win": 0.765,
+    "sag_win": 0.684
+  },
+  "intercept": -2.684,
+  "train_ceremonies": [
+    1996,
+    2026
+  ],
+  "n_ceremonies": 31,
+  "n_nominations": 226,
+  "evaluation": {
+    "method": "walk-forward 2015-2026",
+    "ceremonies": 12,
+    "model_hits": 8,
+    "pga_rule_hits": 9
+  },
+  "note": "The model only knows PGA, DGA and SAG. Before those are awarded, every film gets the same probability.",
+  "trained_at": "2026-10-07T08:50:12+00:00",
+  "python": "3.14.3",
+  "scikit_learn": "1.9.1"
+}
